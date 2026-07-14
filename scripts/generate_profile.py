@@ -259,7 +259,7 @@ text { white-space: pre; }
 
     header("matrodrigs@github", username=True)
     field("Name:", "Mateus Rodrigues")
-    field("Role:", "Software Developer · Java & TypeScript")
+    field("Role:", "Software Developer")
     field("Education:", "Computer Science @ UNESP")
     field("Location:", "Bauru, SP · Brazil")
     y += 8
