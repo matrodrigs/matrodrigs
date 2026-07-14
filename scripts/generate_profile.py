@@ -14,9 +14,11 @@ USER = os.environ.get("GITHUB_USER", "matrodrigs")
 TOKEN = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
 GRAPHQL_URL = "https://api.github.com/graphql"
 
-WIDTH = 1320
+WIDTH = 1050
 HEIGHT = 540
-RIGHT_X = 465
+RIGHT_X = 380
+CHAR_WIDTH = 9.6
+VALUE_COLUMN = 22
 FONT_FAMILY = "'SFMono-Regular', Consolas, 'Liberation Mono', monospace"
 
 
@@ -191,40 +193,40 @@ def render(theme_name: str, metrics: dict[str, int]) -> str:
     ]
 
     for index, line in enumerate(portrait):
-        elements.append(svg_text(22, 32 + index * 10.55, line, colors["text"], size=13))
+        elements.append(svg_text(20, 32 + index * 10.55, line, colors["text"], size=12))
 
     y = 39.0
-    right_edge_chars = 84
+    right_edge_chars = int((WIDTH - RIGHT_X - 36) / CHAR_WIDTH)
 
     def header(title: str, username: bool = False) -> None:
         nonlocal y
         separator = "-" if username else "─"
         length = max(4, right_edge_chars - len(title) - 1)
         elements.append(svg_text(RIGHT_X, y, title, colors["text"], weight=700 if username else 400))
-        elements.append(svg_text(RIGHT_X + (len(title) + 1) * 9.6, y, separator * length, colors["muted"]))
+        elements.append(svg_text(RIGHT_X + (len(title) + 1) * CHAR_WIDTH, y, separator * length, colors["muted"]))
         y += 25
 
     def field(label: str, value: str, value_color: str | None = None) -> None:
         nonlocal y
-        dots = "." * max(3, 24 - len(label))
+        dots = "." * max(3, VALUE_COLUMN - 1 - len(label))
         elements.append(svg_text(RIGHT_X + 16, y, label, colors["label"]))
-        elements.append(svg_text(RIGHT_X + 16 + (len(label) + 1) * 9.6, y, dots, colors["muted"]))
-        elements.append(svg_text(RIGHT_X + 16 + 25 * 9.6, y, value, value_color or colors["value"]))
+        elements.append(svg_text(RIGHT_X + 16 + (len(label) + 1) * CHAR_WIDTH, y, dots, colors["muted"]))
+        elements.append(svg_text(RIGHT_X + 16 + VALUE_COLUMN * CHAR_WIDTH, y, value, value_color or colors["value"]))
         y += 24
 
     def lines_field() -> None:
         nonlocal y
         label = "Lines.of.Code:"
-        dots = "." * max(3, 24 - len(label))
-        value_x = RIGHT_X + 16 + 25 * 9.6
+        dots = "." * max(3, VALUE_COLUMN - 1 - len(label))
+        value_x = RIGHT_X + 16 + VALUE_COLUMN * CHAR_WIDTH
         net = f'{metrics["lines"]:,}'
         added = f' ({metrics["additions"]:,}++'
         removed = f', {metrics["deletions"]:,}--)'
         elements.append(svg_text(RIGHT_X + 16, y, label, colors["label"]))
-        elements.append(svg_text(RIGHT_X + 16 + (len(label) + 1) * 9.6, y, dots, colors["muted"]))
+        elements.append(svg_text(RIGHT_X + 16 + (len(label) + 1) * CHAR_WIDTH, y, dots, colors["muted"]))
         elements.append(svg_text(value_x, y, net, colors["value"]))
-        elements.append(svg_text(value_x + len(net) * 9.6, y, added, colors["positive"]))
-        elements.append(svg_text(value_x + (len(net) + len(added)) * 9.6, y, removed, colors["negative"]))
+        elements.append(svg_text(value_x + len(net) * CHAR_WIDTH, y, added, colors["positive"]))
+        elements.append(svg_text(value_x + (len(net) + len(added)) * CHAR_WIDTH, y, removed, colors["negative"]))
         y += 24
 
     header("matrodrigs@github", username=True)
