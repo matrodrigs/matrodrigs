@@ -18,7 +18,7 @@ WIDTH = 985
 HEIGHT = 530
 RIGHT_X = 390
 VALUE_RIGHT_X = WIDTH - 15
-CHAR_WIDTH = 10.45
+CHAR_WIDTH = 9.63
 FONT_FAMILY = "'ConsolasFallback', Consolas, monospace"
 
 
