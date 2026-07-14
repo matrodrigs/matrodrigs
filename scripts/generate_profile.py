@@ -14,12 +14,12 @@ USER = os.environ.get("GITHUB_USER", "matrodrigs")
 TOKEN = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
 GRAPHQL_URL = "https://api.github.com/graphql"
 
-WIDTH = 1050
-HEIGHT = 540
-RIGHT_X = 380
-CHAR_WIDTH = 9.6
-VALUE_COLUMN = 22
-FONT_FAMILY = "'SFMono-Regular', Consolas, 'Liberation Mono', monospace"
+WIDTH = 985
+HEIGHT = 530
+RIGHT_X = 390
+VALUE_RIGHT_X = WIDTH - 15
+CHAR_WIDTH = 10.45
+FONT_FAMILY = "'ConsolasFallback', Consolas, monospace"
 
 
 THEMES = {
@@ -174,10 +174,20 @@ def collect_metrics() -> dict[str, int]:
     }
 
 
-def svg_text(x: int, y: float, value: str, color: str, size: int = 16, weight: int = 400) -> str:
+def svg_text(
+    x: int | float,
+    y: float,
+    value: str,
+    color: str,
+    size: int = 16,
+    weight: int = 400,
+    anchor: str | None = None,
+) -> str:
+    anchor_attribute = f' text-anchor="{anchor}"' if anchor else ""
     return (
         f'<text x="{x}" y="{y:g}" fill="{color}" font-family="{FONT_FAMILY}" '
-        f'font-size="{size}" font-weight="{weight}" style="white-space:pre">{html.escape(value)}</text>'
+        f'font-size="{size}" font-weight="{weight}"{anchor_attribute} '
+        f'style="white-space:pre">{html.escape(value)}</text>'
     )
 
 
@@ -188,15 +198,26 @@ def render(theme_name: str, metrics: dict[str, int]) -> str:
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{HEIGHT}" viewBox="0 0 {WIDTH} {HEIGHT}" role="img" aria-labelledby="title desc" xml:space="preserve">',
         '<title id="title">Mateus Rodrigues GitHub profile</title>',
         '<desc id="desc">Terminal-style profile card with an ASCII portrait, skills, projects, contact information, and live GitHub statistics.</desc>',
-        f'<rect width="{WIDTH}" height="{HEIGHT}" fill="{colors["background"]}"/>',
-        f'<rect x="14" y="14" width="{WIDTH - 28}" height="{HEIGHT - 28}" rx="20" fill="{colors["panel"]}" stroke="{colors["border"]}" stroke-width="2"/>',
+        """<style>
+@font-face {
+  src: local('Consolas'), local('Consolas Bold');
+  font-family: 'ConsolasFallback';
+  font-display: swap;
+  -webkit-size-adjust: 109%;
+  size-adjust: 109%;
+}
+text { white-space: pre; }
+</style>""",
+        f'<rect width="{WIDTH}" height="{HEIGHT}" rx="15" fill="{colors["panel"]}"/>',
     ]
 
+    elements.append('<g transform="translate(-15 0) scale(1.08 1)">')
     for index, line in enumerate(portrait):
         elements.append(svg_text(20, 32 + index * 10.55, line, colors["text"], size=12))
+    elements.append("</g>")
 
     y = 39.0
-    right_edge_chars = int((WIDTH - RIGHT_X - 36) / CHAR_WIDTH)
+    right_edge_chars = int((VALUE_RIGHT_X - RIGHT_X) / CHAR_WIDTH)
 
     def header(title: str, username: bool = False) -> None:
         nonlocal y
@@ -208,22 +229,29 @@ def render(theme_name: str, metrics: dict[str, int]) -> str:
 
     def field(label: str, value: str, value_color: str | None = None) -> None:
         nonlocal y
-        dots = "." * max(3, VALUE_COLUMN - 1 - len(label))
-        elements.append(svg_text(RIGHT_X + 16, y, label, colors["label"]))
-        elements.append(svg_text(RIGHT_X + 16 + (len(label) + 1) * CHAR_WIDTH, y, dots, colors["muted"]))
-        elements.append(svg_text(RIGHT_X + 16 + VALUE_COLUMN * CHAR_WIDTH, y, value, value_color or colors["value"]))
+        label_x = RIGHT_X + 2 * CHAR_WIDTH
+        dots_x = label_x + (len(label) + 1) * CHAR_WIDTH
+        value_x = VALUE_RIGHT_X - len(value) * CHAR_WIDTH
+        dots = "." * max(1, int((value_x - dots_x) / CHAR_WIDTH))
+        elements.append(svg_text(RIGHT_X, y, ". ", colors["muted"]))
+        elements.append(svg_text(label_x, y, label, colors["label"]))
+        elements.append(svg_text(dots_x, y, dots, colors["muted"]))
+        elements.append(svg_text(VALUE_RIGHT_X, y, value, value_color or colors["value"], anchor="end"))
         y += 24
 
     def lines_field() -> None:
         nonlocal y
         label = "Lines.of.Code:"
-        dots = "." * max(3, VALUE_COLUMN - 1 - len(label))
-        value_x = RIGHT_X + 16 + VALUE_COLUMN * CHAR_WIDTH
         net = f'{metrics["lines"]:,}'
         added = f' ({metrics["additions"]:,}++'
         removed = f', {metrics["deletions"]:,}--)'
-        elements.append(svg_text(RIGHT_X + 16, y, label, colors["label"]))
-        elements.append(svg_text(RIGHT_X + 16 + (len(label) + 1) * CHAR_WIDTH, y, dots, colors["muted"]))
+        value_x = VALUE_RIGHT_X - (len(net) + len(added) + len(removed)) * CHAR_WIDTH
+        label_x = RIGHT_X + 2 * CHAR_WIDTH
+        dots_x = label_x + (len(label) + 1) * CHAR_WIDTH
+        dots = "." * max(1, int((value_x - dots_x) / CHAR_WIDTH))
+        elements.append(svg_text(RIGHT_X, y, ". ", colors["muted"]))
+        elements.append(svg_text(label_x, y, label, colors["label"]))
+        elements.append(svg_text(dots_x, y, dots, colors["muted"]))
         elements.append(svg_text(value_x, y, net, colors["value"]))
         elements.append(svg_text(value_x + len(net) * CHAR_WIDTH, y, added, colors["positive"]))
         elements.append(svg_text(value_x + (len(net) + len(added)) * CHAR_WIDTH, y, removed, colors["negative"]))
@@ -238,7 +266,7 @@ def render(theme_name: str, metrics: dict[str, int]) -> str:
 
     header("- What I Do ")
     field("Main.Stack:", "Java · TypeScript")
-    field("Best.At:", "Turning real problems into software solutions")
+    field("Best.At:", "Creating solutions for real problems")
     y += 8
 
     header("- Featured Work ")
