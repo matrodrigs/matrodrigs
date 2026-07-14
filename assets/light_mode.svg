@@ -117,7 +117,7 @@ text { white-space: pre; }
 <text x="390" y="460" fill="#8c959f" font-family="'ConsolasFallback', Consolas, monospace" font-size="16" font-weight="400" style="white-space:pre">. </text>
 <text x="409.26" y="460" fill="#bc4c00" font-family="'ConsolasFallback', Consolas, monospace" font-size="16" font-weight="400" style="white-space:pre">Commits:</text>
 <text x="495.93" y="460" fill="#8c959f" font-family="'ConsolasFallback', Consolas, monospace" font-size="16" font-weight="400" style="white-space:pre">...............................................</text>
-<text x="970" y="460" fill="#0969da" font-family="'ConsolasFallback', Consolas, monospace" font-size="16" font-weight="400" text-anchor="end" style="white-space:pre">78</text>
+<text x="970" y="460" fill="#0969da" font-family="'ConsolasFallback', Consolas, monospace" font-size="16" font-weight="400" text-anchor="end" style="white-space:pre">81</text>
 <text x="390" y="484" fill="#8c959f" font-family="'ConsolasFallback', Consolas, monospace" font-size="16" font-weight="400" style="white-space:pre">. </text>
 <text x="409.26" y="484" fill="#bc4c00" font-family="'ConsolasFallback', Consolas, monospace" font-size="16" font-weight="400" style="white-space:pre">Followers:</text>
 <text x="515.19" y="484" fill="#8c959f" font-family="'ConsolasFallback', Consolas, monospace" font-size="16" font-weight="400" style="white-space:pre">..............................................</text>
@@ -126,6 +126,6 @@ text { white-space: pre; }
 <text x="409.26" y="508" fill="#bc4c00" font-family="'ConsolasFallback', Consolas, monospace" font-size="16" font-weight="400" style="white-space:pre">Lines.of.Code:</text>
 <text x="553.71" y="508" fill="#8c959f" font-family="'ConsolasFallback', Consolas, monospace" font-size="16" font-weight="400" style="white-space:pre">.................</text>
 <text x="719.62" y="508" fill="#0969da" font-family="'ConsolasFallback', Consolas, monospace" font-size="16" font-weight="400" style="white-space:pre">20,733</text>
-<text x="777.4" y="508" fill="#1a7f37" font-family="'ConsolasFallback', Consolas, monospace" font-size="16" font-weight="400" style="white-space:pre"> (27,064++</text>
-<text x="873.7" y="508" fill="#cf222e" font-family="'ConsolasFallback', Consolas, monospace" font-size="16" font-weight="400" style="white-space:pre">, 6,331--)</text>
+<text x="777.4" y="508" fill="#1a7f37" font-family="'ConsolasFallback', Consolas, monospace" font-size="16" font-weight="400" style="white-space:pre"> (27,071++</text>
+<text x="873.7" y="508" fill="#cf222e" font-family="'ConsolasFallback', Consolas, monospace" font-size="16" font-weight="400" style="white-space:pre">, 6,338--)</text>
 </svg>
