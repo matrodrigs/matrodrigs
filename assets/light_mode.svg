@@ -94,13 +94,13 @@
 <text x="607.2" y="436" fill="#0969da" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="16" font-weight="400" style="white-space:pre">4</text>
 <text x="396" y="460" fill="#bc4c00" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="16" font-weight="400" style="white-space:pre">Commits:</text>
 <text x="482.4" y="460" fill="#8c959f" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="16" font-weight="400" style="white-space:pre">.............</text>
-<text x="607.2" y="460" fill="#0969da" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="16" font-weight="400" style="white-space:pre">75</text>
+<text x="607.2" y="460" fill="#0969da" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="16" font-weight="400" style="white-space:pre">76</text>
 <text x="396" y="484" fill="#bc4c00" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="16" font-weight="400" style="white-space:pre">Followers:</text>
 <text x="501.6" y="484" fill="#8c959f" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="16" font-weight="400" style="white-space:pre">...........</text>
 <text x="607.2" y="484" fill="#0969da" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="16" font-weight="400" style="white-space:pre">1</text>
 <text x="396" y="508" fill="#bc4c00" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="16" font-weight="400" style="white-space:pre">Lines.of.Code:</text>
 <text x="540.0" y="508" fill="#8c959f" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="16" font-weight="400" style="white-space:pre">.......</text>
-<text x="607.2" y="508" fill="#0969da" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="16" font-weight="400" style="white-space:pre">20,653</text>
-<text x="664.8000000000001" y="508" fill="#1a7f37" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="16" font-weight="400" style="white-space:pre"> (26,464++</text>
-<text x="760.8000000000001" y="508" fill="#cf222e" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="16" font-weight="400" style="white-space:pre">, 5,811--)</text>
+<text x="607.2" y="508" fill="#0969da" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="16" font-weight="400" style="white-space:pre">20,655</text>
+<text x="664.8000000000001" y="508" fill="#1a7f37" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="16" font-weight="400" style="white-space:pre"> (26,685++</text>
+<text x="760.8000000000001" y="508" fill="#cf222e" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" font-size="16" font-weight="400" style="white-space:pre">, 6,030--)</text>
 </svg>
