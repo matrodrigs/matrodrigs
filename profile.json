@@ -1,0 +1,10 @@
+{
+  "name_lines": ["Mateus", "Rodrigues"],
+  "handle": "@matrodrigs",
+  "subtitle": "Computer Science · UNESP",
+  "width": 1120,
+  "height": 480,
+  "frames": 160,
+  "frame_duration_ms": 80,
+  "seed": 731
+}

@@ -1,0 +1,16 @@
+{
+  "dimensions": [
+    1120,
+    480
+  ],
+  "frames": 160,
+  "duration_seconds": 12.8,
+  "gif_bytes": {
+    "dark": 1261100,
+    "light": 1282809
+  },
+  "source": "Original procedural black-hole typography; outputs/scripts/render.py; art-directed analytical accretion and lens fields, not a physics simulation; font: Roboto Mono, SIL OFL 1.1.",
+  "font_source": "https://github.com/google/fonts/tree/main/ofl/robotomono",
+  "reference": "https://openai.com/pt-BR/index/previewing-gpt-5-6-sol/",
+  "loop": "All motion uses integer-period sine/cosine waves; t=0 and t=1 are identical."
+}
