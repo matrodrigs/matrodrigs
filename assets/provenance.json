@@ -3,14 +3,17 @@
     1120,
     480
   ],
-  "frames": 160,
-  "duration_seconds": 12.8,
+  "frames": 320,
+  "duration_seconds": 16.0,
   "gif_bytes": {
-    "dark": 1261100,
-    "light": 1282809
+    "dark": 3686578,
+    "light": 3796123
   },
-  "source": "Original procedural black-hole typography; outputs/scripts/render.py; art-directed analytical accretion and lens fields, not a physics simulation; font: Roboto Mono, SIL OFL 1.1.",
+  "source": "Original procedural ASCII animation; scripts/render.py; art-directed accretion, photon rings and orbiting glyphs. Not a scientific simulation. Roboto Mono, SIL OFL 1.1. User-supplied black-hole image is a composition reference only; no reference-image pixels are used.",
   "font_source": "https://github.com/google/fonts/tree/main/ofl/robotomono",
-  "reference": "https://openai.com/pt-BR/index/previewing-gpt-5-6-sol/",
-  "loop": "All motion uses integer-period sine/cosine waves; t=0 and t=1 are identical."
+  "reference": "User-provided black-hole composition; reference pixels not used.",
+  "loop": "Three narrow seeded glyph currents orbit once per loop; gentle integer-period light waves, inward pulses and endpoint-faded letter echoes preserve the seam.",
+  "motion": "Most glyphs stay fixed. Three narrow disk currents orbit in 16 seconds; light drifts softly around stationary photon-ring characters. Composition, silhouette and identity stay fixed.",
+  "scale_relative_to_original": 1.38,
+  "ascii": "All marks in the black-hole field are printable ASCII characters."
 }
