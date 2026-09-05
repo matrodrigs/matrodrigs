@@ -4,7 +4,7 @@ The README selects the dark or light GIF through pure `prefers-color-scheme` sou
 
 Static alternatives remain available: [dark](../assets/field-static.png) and [light](../assets/field-light-static.png). The README uses GIFs for both themes; those embedded GIFs do not provide their own pause controls.
 
-The banner restores the incumbent ASCII design: a tilted disk of gray code, amber arcs of bent light, and a silent center. The black-hole geometry is 38% larger than the original. Three curved character streams carry light inward, and faint letter echoes travel from the name into the near-side disk. The name, handle, and education remain stationary and retain their original typography. Identity is also present as native README text for mobile readers, text selection, and assistive technology.
+The banner restores the incumbent ASCII design: a tilted disk of gray code, amber arcs of bent light, and a silent center. The black-hole geometry is 38% larger than the original. Three curved character streams carry light inward, and faint letter echoes travel from the name into the near-side disk. The name, handle, and education remain stationary and retain their original typography. Identity appears only in the artwork and its descriptive alt text; the README does not repeat it as a visible text block below the image.
 
 The dark palette restores pure black, neutral gray, and restrained amber from the original profile artwork. The light variant restores white, graphite, and ochre. Both themes use fixed neutral and amber GIF palette ramps to avoid quantization flicker. The 1120 × 480 banner has 320 frames at 20 fps and loops every 16 seconds.
 
